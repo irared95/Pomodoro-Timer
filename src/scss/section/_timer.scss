@@ -1,0 +1,22 @@
+.timer{
+   background-color: $red;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    &__title{
+        font-family: $poppins-semiBold, $sans-serif;
+        font-size: 25px;
+        line-height: 28px;
+        color: $white;
+        text-align: center;
+    }
+}
+
+.time{
+    &__minutes,
+    &__seconds{
+        width: 80px;
+        height: 80px;
+        background-color: $white;
+    }
+}

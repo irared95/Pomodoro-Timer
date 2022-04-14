@@ -1,0 +1,23 @@
+//utils
+@import './utils/reset';
+@import "./utils/fonts";
+@import "./utils/variable";
+@import "./utils/mixins";
+@import "./utils/my-normalize";
+
+.main{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+//components
+@import "./components/dots";
+@import "./components/btns";
+@import "./components/footer";
+@import "./components/header";
+//section
+@import "./section/timer";
+
