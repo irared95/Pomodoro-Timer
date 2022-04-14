@@ -418,6 +418,9 @@ button {
   max-width: 500px;
   width: 100%;
   margin: 0 auto;
+  border: 1px solid blue;
+  min-height: 500px;
+  padding: 30px;
 }
 .timer__title {
   font-family: "Poppins SemiBold", sans-serif;
@@ -425,10 +428,29 @@ button {
   line-height: 28px;
   color: #fff;
   text-align: center;
+  margin-bottom: 40px;
 }
 
+.time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .time__minutes, .time__seconds {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 110px;
   background-color: #fff;
+  border-radius: 8px;
+  margin: 0 25px 0;
+}
+
+.dots__item {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  margin-bottom: 10px;
+}
+.dots__item:last-child {
+  margin-bottom: 0;
 }
