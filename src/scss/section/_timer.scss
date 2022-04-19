@@ -1,45 +1,28 @@
-.timer{
-  background-color: $red;
-  max-width: 500px;
-  width: 100%;
-  margin: 0 auto;
-  border: 1px solid blue ;
-  min-height: 500px;
-  padding: 30px;
-    &__title{
+.timer {
+    background-color: $red;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid blue;
+    min-height: 500px;
+    padding: 30px;
+
+    &__title {
         font-family: $poppins-semiBold, $sans-serif;
         font-size: 25px;
         line-height: 28px;
         color: $white;
         text-align: center;
-      margin-bottom: 40px;
+        margin-bottom: 40px;
+    }
+
+    &__set {
+        margin-bottom: 30px;
     }
 }
 
-.time{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-    &__minutes,
-    &__seconds{
-        width: 100px;
-        height: 110px;
-        background-color: $white;
-      border-radius: 8px;
-      margin: 0 25px 0;
-    }
 
-}
 
-.dots{
-  &__item{
-    width: 10px;
-    height: 10px;
-    border-radius: 10px;
-    border: 1px solid $white;
-    margin-bottom: 10px;
-    &:last-child{
-      margin-bottom: 0;
-    }
-  }
-}
+
+
+

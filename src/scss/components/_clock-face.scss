@@ -1,0 +1,38 @@
+.clock-face {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+
+    &__minutes,
+    &__seconds {
+        width: 100px;
+        height: 110px;
+        background-color: $white;
+        border-radius: 8px;
+        margin: 0 25px 0;
+        color: $red;
+        font-family: $poppins-semiBold, $sans-serif;
+        font-size: 80px;
+        font-weight: 700;
+        line-height: 82px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__dots {
+        &__item {
+            width: 10px;
+            height: 10px;
+            border-radius: 10px;
+            border: 1px solid $white;
+            margin-bottom: 10px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+}

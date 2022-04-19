@@ -406,11 +406,184 @@ button {
   cursor: pointer;
 }
 
+/* Slider */
+.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.slick-list:focus {
+  outline: none;
+}
+
+.slick-list.dragging {
+  cursor: pointer;
+  cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slick-track:before,
+.slick-track:after {
+  display: table;
+  content: "";
+}
+
+.slick-track:after {
+  clear: both;
+}
+
+.slick-loading .slick-track {
+  visibility: hidden;
+}
+
+.slick-slide {
+  display: none;
+  float: left;
+  height: 100%;
+  min-height: 1px;
+}
+
+[dir=rtl] .slick-slide {
+  float: right;
+}
+
+.slick-slide img {
+  display: block;
+}
+
+.slick-slide.slick-loading img {
+  display: none;
+}
+
+.slick-slide.dragging img {
+  pointer-events: none;
+}
+
+.slick-initialized .slick-slide {
+  display: block;
+}
+
+.slick-loading .slick-slide {
+  visibility: hidden;
+}
+
+.slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent;
+}
+
+.slick-arrow.slick-hidden {
+  display: none;
+}
+
 .main {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.clock-face {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.clock-face__minutes, .clock-face__seconds {
+  width: 100px;
+  height: 110px;
+  background-color: #fff;
+  border-radius: 8px;
+  margin: 0 25px 0;
+  color: #b22222;
+  font-family: "Poppins SemiBold", sans-serif;
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.clock-face__dots__item {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  margin-bottom: 10px;
+}
+.clock-face__dots__item:last-child {
+  margin-bottom: 0;
+}
+
+.slider {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.slider__item {
+  text-align: center;
+  margin: 10px;
+  border: 1px solid #fff;
+  padding: 4px;
+  transition: transform 0.2s linear;
+}
+.slider__item.slick-center {
+  transform: scale(1.2);
+}
+.slider__item:last-child {
+  margin-right: 0;
+}
+.slider__minutes {
+  font-family: "Poppins Regular", sans-serif;
+  font-size: 18px;
+  line-height: 20px;
+  color: #fff;
+}
+
+.title {
+  font-family: "Poppins Regular", sans-serif;
+  font-size: 18px;
+  line-height: 20px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 .timer {
@@ -430,27 +603,6 @@ button {
   text-align: center;
   margin-bottom: 40px;
 }
-
-.time {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.time__minutes, .time__seconds {
-  width: 100px;
-  height: 110px;
-  background-color: #fff;
-  border-radius: 8px;
-  margin: 0 25px 0;
-}
-
-.dots__item {
-  width: 10px;
-  height: 10px;
-  border-radius: 10px;
-  border: 1px solid #fff;
-  margin-bottom: 10px;
-}
-.dots__item:last-child {
-  margin-bottom: 0;
+.timer__set {
+  margin-bottom: 30px;
 }

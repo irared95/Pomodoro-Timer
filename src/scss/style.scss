@@ -5,6 +5,9 @@
 @import "./utils/mixins";
 @import "./utils/my-normalize";
 
+//libs
+@import 'libs/slick-slider/slick';
+
 .main{
     min-height: 100vh;
     display: flex;
@@ -14,10 +17,11 @@
 
 
 //components
-@import "./components/dots";
+@import "./components/clock-face";
 @import "./components/btns";
-@import "./components/footer";
-@import "./components/header";
+@import "./components/slider";
+@import "./components/title";
+
 //section
 @import "./section/timer";
 
