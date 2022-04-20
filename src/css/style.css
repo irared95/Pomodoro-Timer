@@ -563,9 +563,11 @@ button {
   border: 1px solid #fff;
   padding: 4px;
   transition: transform 0.2s linear;
+  opacity: 0.5;
 }
 .slider__item.slick-center {
   transform: scale(1.2);
+  opacity: 1;
 }
 .slider__item:last-child {
   margin-right: 0;
@@ -603,6 +605,51 @@ button {
   text-align: center;
   margin-bottom: 40px;
 }
-.timer__set {
+.timer__set, .timer__break {
   margin-bottom: 30px;
+}
+.timer__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.timer__action {
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  border: 1px solid #fff;
+  position: relative;
+}
+.timer__play, .timer__stop {
+  visibility: visible;
+  opacity: 1;
+  transition: transform 0.2s linear;
+}
+.timer__play:hover, .timer__stop:hover {
+  transform: scale(1.2);
+}
+.timer__play.active, .timer__stop.active {
+  visibility: hidden;
+  position: absolute;
+}
+
+.play,
+.stop {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.play {
+  border-top: 20px solid transparent;
+  border-left: 40px solid #fff;
+  border-bottom: 20px solid transparent;
+}
+
+.stop {
+  border-left: 6px solid #fff;
+  border-right: 6px solid #fff;
+  width: 21px;
+  height: 40px;
 }

@@ -11,10 +11,13 @@
         border: 1px solid $white;
         padding: 4px;
         transition: transform 0.2s linear;
+        opacity: 0.5;
 
         &.slick-center {
             transform: scale(1.2);
+            opacity: 1;
         }
+
 
         &:last-child {
             margin-right: 0;

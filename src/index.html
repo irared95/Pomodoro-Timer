@@ -23,51 +23,59 @@
             </div>
             <div class="timer__set">
                 <h2 class="title">Session Length</h2>
-                <ul class="slider">
-                    <li class="slider__item">
-                       <button class="slider__minutes">20</button>
-                    </li>
-                    <li class="slider__item">
-                        <button class="slider__minutes">30</button>
-                    </li>
-                    <li class="slider__item">
-                        <button class="slider__minutes">40</button>
-                    </li>
-                    <li class="slider__item">
-                        <button class="slider__minutes">45</button>
-                    </li>
-                    <li class="slider__item">
-                        <button class="slider__minutes">60</button>
-                    </li>
-                </ul>
+                <div class="slider">
+                    <button class="slider__item">
+                       <span class="slider__minutes">20</span>
+                    </button>
+                    <button class="slider__item">
+                        <span class="slider__minutes">30</span>
+                    </button>
+                    <button class="slider__item">
+                        <span class="slider__minutes">40</span>
+                    </button>
+                    <button class="slider__item">
+                        <span class="slider__minutes">45</span>
+                    </button>
+                    <button class="slider__item">
+                        <span class="slider__minutes">60</span>
+                    </button>
+                </div>
             </div>
             <div class="timer__break">
                 <h2 class="title">Break Length</h2>
-                <ul class="slider">
-                    <li class="slider__item">
-                        <button class="slider__minutes">05</button>
-                    </li>
-                    <li class="slider__item">
-                        <button class="slider__minutes">10</button>
-                    </li>
-                    <li class="slider__item">
-                        <button class="slider__minutes">15</button>
-                    </li>
-                    <li class="slider__item">
-                        <button class="slider__minutes">20</button>
-                    </li>
-                    <li class="slider__item">
-                        <button class="slider__minutes">20</button>
-                    </li>
-                </ul>
+                <div class="slider">
+                    <button class="slider__item">
+                        <span class="slider__minutes">05</span>
+                    </button>
+                    <button class="slider__item">
+                        <span class="slider__minutes">10</span>
+                    </button>
+                    <button class="slider__item">
+                        <span class="slider__minutes">15</span>
+                    </button>
+                    <button class="slider__item">
+                        <span class="slider__minutes">20</span>
+                    </button>
+                    <button class="slider__item">
+                        <span class="slider__minutes">20</span>
+                    </button>
+                </div>
             </div>
-            <button class="timer__action play"></button>
-            <button class="timer__action stop"></button>
+            <div class="timer__button">
+                <button class="timer__action timer__play play--js">
+                    <span class="play"></span>
+                </button>
+                <button class="timer__action timer__stop stop--js active">
+                    <span class="stop"></span>
+                </button>
+            </div>
+
+
         </section>
     </main>
 
-    <script src="script/jquery.js"></script>
-    <script src="script/slick.min.js"></script>
+    <script src="script/libs/jquery.js"></script>
+    <script src="script/libs/slick.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 

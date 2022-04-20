@@ -7,9 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
         arrows: false,
         dots: false,
         centerMode: true,
-
     });
-
 
 
 })
