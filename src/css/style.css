@@ -540,14 +540,14 @@ button {
   align-items: center;
   justify-content: center;
 }
-.clock-face__dots__item {
+.clock-face__dots-item {
   width: 10px;
   height: 10px;
   border-radius: 10px;
   border: 1px solid #fff;
   margin-bottom: 10px;
 }
-.clock-face__dots__item:last-child {
+.clock-face__dots-item:last-child {
   margin-bottom: 0;
 }
 
