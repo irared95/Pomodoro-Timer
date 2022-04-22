@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-    let minute = 25;
-    let second = 0;
-    let minutesInterval = null;
-    let secondsInterval = null;
-
+    let minute = 1;
+    let second = 5;
+    let cron = null;
 
     let play = document.querySelector('.play--js')
     let stop = document.querySelector('.stop--js')
@@ -15,62 +13,48 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
     function onStart() {
-        document.querySelector('.clock-face__minutes--js').innerHTML = minute;
-        document.querySelector('.clock-face__seconds--js').innerHTML = second;
-        minutesInterval = setInterval(minutesTimer, 60000);
-        secondsInterval = setInterval(secondsTimer, 1000);
+        cron = setInterval(() => {
+            timer();
+        }, 1000);
 
-    }
-
-    function minutesTimer(){
-        minute = minute-1;
-        document.querySelector('.clock-face__minutes--js').innerHTML = minute;
-        console.log('minutesTime' ,5)
-    }
-
-    function secondsTimer(){
-
-        document.querySelector('.clock-face__seconds--js').innerHTML = second;
-        if (second <= 0) {
-            if (minute <= 0){
-               onStop()
-            }
-            second = 60;
-        }
-        second = second-1;
     }
 
     function onStop() {
-        clearInterval(minutesInterval)
-        clearInterval(secondsInterval)
+        clearInterval(cron);
+        onReset()
     }
 
-    // function onReset() {
-    //
-    //     document.querySelector('.clock-face__minutes--js').innerHTML = minute;
-    //     document.querySelector('.clock-face__seconds--js').innerHTML = second;
-    //
-    // }
-    //
-    // onReset()
-    //
-    // function timer() {
-    //     console.log('second', second)
-    //     second++
-    //     console.log('min', minute)
-    //     if (second === 60) {
-    //         second = 0;
-    //         minute++;
-    //     }
-    //
-    //     showTime(minute, second)
-    //
-    // }
+    function onReset() {
+        minute = 0;
+        second = 0;
+        document.querySelector('.clock-face__minutes--js').innerHTML = '00';
+        document.querySelector('.clock-face__seconds--js').innerHTML = '00';
+    }
 
-    // function showTime(minute, second) {
-    //     document.querySelector('.clock-face__minutes--js').innerHTML = formattingTime(minute);
-    //     document.querySelector('.clock-face__seconds--js').innerHTML = formattingTime(second);
-    // }
+
+    function timer() {
+
+
+        if(minute === 0 && second === 0){
+            onStop()
+            return false
+        }
+
+        if (second === 0) {
+            minute--;
+            second = 60;
+        }
+
+        second--
+
+        showTime(minute, second)
+
+    }
+
+    function showTime(minute, second) {
+        document.querySelector('.clock-face__minutes--js').innerHTML = formattingTime(minute);
+        document.querySelector('.clock-face__seconds--js').innerHTML = formattingTime(second);
+    }
 
     function formattingTime(time) {
         return time > 9 ? time : `0${time}`
