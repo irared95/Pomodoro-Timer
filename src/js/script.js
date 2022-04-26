@@ -28,19 +28,23 @@ document.addEventListener('DOMContentLoaded', function () {
         centerMode: true,
     });
 
-
 })
 document.addEventListener('DOMContentLoaded', function () {
-    let minute = 1;
-    let second = 5;
+    let minute = 20;
+    let second = 0;
     let cron = null;
 
     let play = document.querySelector('.play--js')
     let stop = document.querySelector('.stop--js')
+
+
+
     play.addEventListener('click', function () {
+        disableSlider()
         onStart()
     })
     stop.addEventListener('click', function () {
+        disableSlider()
         onStop()
     })
 
@@ -66,7 +70,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function timer() {
 
-
         if(minute === 0 && second === 0){
             onStop()
             return false
@@ -91,6 +94,22 @@ document.addEventListener('DOMContentLoaded', function () {
     function formattingTime(time) {
         return time > 9 ? time : `0${time}`
     }
+
+    $('.slider-time--js').on('afterChange', function (){
+        const timeSliderCurrent = document.querySelector('.slider-time--js .slick-current')
+        let time = timeSliderCurrent.getAttribute("data-time");
+        minute = Number(time)
+        showTime(minute, second)
+    })
+
+    function disableSlider (){
+        const slider = document.querySelector('.slider-time--js');
+        slider.classList.toggle('active');
+    }
+
+
+
+
 
 
 })

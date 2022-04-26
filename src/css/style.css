@@ -557,6 +557,10 @@ button {
   justify-content: center;
   align-items: center;
 }
+.slider.active {
+  pointer-events: none;
+  opacity: 0.4;
+}
 .slider__item {
   text-align: center;
   margin: 10px;

@@ -3,7 +3,10 @@
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-
+    &.active{
+        pointer-events: none;
+        opacity: 0.4;
+    }
 
     &__item {
         text-align: center;
@@ -22,6 +25,7 @@
         &:last-child {
             margin-right: 0;
         }
+
     }
 
     &__minutes {
