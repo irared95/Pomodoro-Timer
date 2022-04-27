@@ -582,6 +582,10 @@ button {
   line-height: 20px;
   color: #fff;
 }
+.slider-break.active {
+  pointer-events: none;
+  opacity: 0.4;
+}
 
 .title {
   font-family: "Poppins Regular", sans-serif;
@@ -590,6 +594,27 @@ button {
   color: #fff;
   text-align: center;
   margin-bottom: 15px;
+}
+
+.tomato__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tomato__item {
+  margin-right: 15px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+.tomato__item:last-child {
+  margin-right: 0;
+}
+.tomato__item.active {
+  opacity: 1;
+}
+.tomato svg {
+  width: 50px;
+  height: 50px;
 }
 
 .timer {
@@ -609,7 +634,7 @@ button {
   text-align: center;
   margin-bottom: 40px;
 }
-.timer__set, .timer__break {
+.timer__set, .timer__break, .timer__button {
   margin-bottom: 30px;
 }
 .timer__button {

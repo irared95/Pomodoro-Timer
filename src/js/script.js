@@ -29,22 +29,33 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 })
+function indexInParent(node) {
+    var children = node.parentNode.childNodes;
+    var num = 0;
+    for (var i = 0; i < children.length; i++) {
+        if (children[i] === node) return num;
+        if (children[i].nodeType === 1) num++;
+    }
+    return -1;
+}
+
 document.addEventListener('DOMContentLoaded', function () {
-    let minute = 20;
-    let second = 0;
+    let minute = 0;///20
+    let second = 5;///0
     let cron = null;
 
     let play = document.querySelector('.play--js')
     let stop = document.querySelector('.stop--js')
 
 
-
     play.addEventListener('click', function () {
         disableSlider()
+        disableSliderBreak()
         onStart()
     })
     stop.addEventListener('click', function () {
         disableSlider()
+        disableSliderBreak()
         onStop()
     })
 
@@ -70,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function timer() {
 
-        if(minute === 0 && second === 0){
+        if (minute === 0 && second === 0) {
             onStop()
             return false
         }
@@ -95,21 +106,58 @@ document.addEventListener('DOMContentLoaded', function () {
         return time > 9 ? time : `0${time}`
     }
 
-    $('.slider-time--js').on('afterChange', function (){
+    $('.slider-time--js').on('afterChange', function () {
         const timeSliderCurrent = document.querySelector('.slider-time--js .slick-current')
         let time = timeSliderCurrent.getAttribute("data-time");
         minute = Number(time)
         showTime(minute, second)
     })
 
-    function disableSlider (){
+    function disableSlider() {
         const slider = document.querySelector('.slider-time--js');
         slider.classList.toggle('active');
     }
 
+    ////////////////break
+    let circle = 1;
+    let breakTime = 5;
 
+    $('.slider-break--js').on('afterChange', function () {
+        const breakSliderCurrent = document.querySelector('.slider-break--js .slick-current')
+        let timeBreak = breakSliderCurrent.getAttribute("data-break");
+        breakTime = Number(timeBreak)
+    })
 
+    function disableSliderBreak() {
+        const sliderBreak = document.querySelector('.slider-break--js');
+        sliderBreak.classList.toggle('active');
+    }
 
+    let tomatoes = document.querySelectorAll('.tomato__item--js')
+
+    function clearTomatoes() {
+        tomatoes.forEach(function (tomato, index) {
+            tomato.classList.remove('active')
+        })
+    }
+
+    tomatoes.forEach(function (tomato, index) {
+        tomato.addEventListener('click', function () {
+            clearTomatoes()
+            const index = indexInParent(this);
+            for (let i = 0; i <= index; i++) {
+                console.log('i', i)
+                tomatoes[i].classList.add('active');
+                console.log('index', index)
+            }
+            let tomatoCircle = this.getAttribute("data-circle");
+            circle = Number(tomatoCircle)
+            console.log('tomat',tomato)
+            console.log('circle',circle)
+            console.log('circle',tomatoCircle)
+        })
+
+    })
 
 
 })
