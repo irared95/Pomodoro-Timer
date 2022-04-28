@@ -30,9 +30,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 })
 function indexInParent(node) {
-    var children = node.parentNode.childNodes;
-    var num = 0;
-    for (var i = 0; i < children.length; i++) {
+    let children = node.parentNode.childNodes;
+    let num = 0;
+    for (let i = 0; i < children.length; i++) {
         if (children[i] === node) return num;
         if (children[i].nodeType === 1) num++;
     }
@@ -40,9 +40,16 @@ function indexInParent(node) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    let minute = 0;///20
-    let second = 5;///0
     let cron = null;
+
+    let minute = 1;///20
+    let second = 5;///0
+
+    let circle = 2;
+    let breakTime = 1;
+
+    let isTimer = 'timer' // timer or breakTimer
+    let counterCircle = 0
 
     let play = document.querySelector('.play--js')
     let stop = document.querySelector('.stop--js')
@@ -51,24 +58,44 @@ document.addEventListener('DOMContentLoaded', function () {
     play.addEventListener('click', function () {
         disableSlider()
         disableSliderBreak()
+        disableTomato()
         onStart()
     })
     stop.addEventListener('click', function () {
         disableSlider()
         disableSliderBreak()
+        disableTomato()
         onStop()
     })
 
     function onStart() {
+        let min = minute
+        let breakMin = breakTime
+
         cron = setInterval(() => {
-            timer();
-        }, 1000);
+            if(isTimer === 'timer' && second === 0) {
+                console.log(11111, min)
+                if(!min) isTimer = 'breakTimer'
+                if(min) min--
+            }
+            if(isTimer === 'breakTimer' && second === 0) {
+                console.log(22222)
+                if(!breakMin) {
+                    isTimer = 'timer'
+                    circle++
+                }
+                if(breakMin) breakMin--
+            }
+            console.log('isTimer', isTimer)
+            timer(min, breakMin);
+        }, 200);
 
     }
 
     function onStop() {
         clearInterval(cron);
         onReset()
+        circle = 0
     }
 
     function onReset() {
@@ -79,22 +106,24 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    function timer() {
-
-        if (minute === 0 && second === 0) {
+    function timer(min, breakMin) {
+        //end timer when completed circles
+        if(counterCircle === circle) {
             onStop()
             return false
         }
-
         if (second === 0) {
-            minute--;
             second = 60;
         }
 
         second--
 
-        showTime(minute, second)
-
+        if(isTimer === 'timer') {
+            showTime(min, second)
+        }
+        if(isTimer === 'breakTimer') {
+            showTime(breakMin, second)
+        }
     }
 
     function showTime(minute, second) {
@@ -118,10 +147,6 @@ document.addEventListener('DOMContentLoaded', function () {
         slider.classList.toggle('active');
     }
 
-    ////////////////break
-    let circle = 1;
-    let breakTime = 5;
-
     $('.slider-break--js').on('afterChange', function () {
         const breakSliderCurrent = document.querySelector('.slider-break--js .slick-current')
         let timeBreak = breakSliderCurrent.getAttribute("data-break");
@@ -138,26 +163,28 @@ document.addEventListener('DOMContentLoaded', function () {
     function clearTomatoes() {
         tomatoes.forEach(function (tomato, index) {
             tomato.classList.remove('active')
+
         })
     }
 
     tomatoes.forEach(function (tomato, index) {
         tomato.addEventListener('click', function () {
             clearTomatoes()
+
             const index = indexInParent(this);
             for (let i = 0; i <= index; i++) {
-                console.log('i', i)
                 tomatoes[i].classList.add('active');
-                console.log('index', index)
             }
             let tomatoCircle = this.getAttribute("data-circle");
             circle = Number(tomatoCircle)
-            console.log('tomat',tomato)
-            console.log('circle',circle)
-            console.log('circle',tomatoCircle)
         })
 
     })
+
+    function disableTomato() {
+        const tomatoStop = document.querySelector('.tomato--js');
+        tomatoStop.classList.toggle('disable');
+    }
 
 
 })

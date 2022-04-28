@@ -596,6 +596,9 @@ button {
   margin-bottom: 15px;
 }
 
+.tomato.disable {
+  pointer-events: none;
+}
 .tomato__list {
   display: flex;
   justify-content: center;

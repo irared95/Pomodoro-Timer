@@ -1,4 +1,7 @@
 .tomato{
+    &.disable{
+        pointer-events: none;
+    }
     &__list{
         display: flex;
         justify-content: center;
@@ -14,11 +17,11 @@
         &.active{
             opacity: 1;
         }
+
     }
     svg{
         width: 50px;
         height: 50px;
-        //opacity: 0.5;
     }
 
 }
