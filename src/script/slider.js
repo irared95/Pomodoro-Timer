@@ -8,5 +8,4 @@ document.addEventListener('DOMContentLoaded', function () {
         dots: false,
         centerMode: true,
     });
-
 })

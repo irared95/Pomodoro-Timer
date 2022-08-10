@@ -9,13 +9,11 @@ function indexInParent(node) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    let minute = 0;///20
-    let second = 5;///0
+    let minute = 20;
+    let second = 0;
     let cron = null;
-
     let play = document.querySelector('.play--js')
     let stop = document.querySelector('.stop--js')
-
 
     play.addEventListener('click', function () {
         disableSlider()
@@ -32,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
         cron = setInterval(() => {
             timer();
         }, 1000);
-
     }
 
     function onStop() {
@@ -47,9 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('.clock-face__seconds--js').innerHTML = '00';
     }
 
-
     function timer() {
-
         if (minute === 0 && second === 0) {
             onStop()
             return false
@@ -59,11 +54,8 @@ document.addEventListener('DOMContentLoaded', function () {
             minute--;
             second = 60;
         }
-
         second--
-
         showTime(minute, second)
-
     }
 
     function showTime(minute, second) {
@@ -115,18 +107,10 @@ document.addEventListener('DOMContentLoaded', function () {
             clearTomatoes()
             const index = indexInParent(this);
             for (let i = 0; i <= index; i++) {
-                console.log('i', i)
                 tomatoes[i].classList.add('active');
-                console.log('index', index)
             }
             let tomatoCircle = this.getAttribute("data-circle");
             circle = Number(tomatoCircle)
-            console.log('tomat',tomato)
-            console.log('circle',circle)
-            console.log('circle',tomatoCircle)
         })
-
     })
-
-
 })
